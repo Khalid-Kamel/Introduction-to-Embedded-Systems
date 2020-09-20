@@ -59,6 +59,12 @@ int main() {
 
 void print_array(unsigned char *test)
 {
+	unsigned char i;
+	printf("\nArray's Elements are:\n---------------------\n\n");
+	for(i=0;i<SIZE;i++)
+	{	
+		printf("%d\t", test[i]);
+	}
 
 }
 
@@ -67,7 +73,16 @@ void print_array(unsigned char *test)
 
 int find_maximum (unsigned char*test)
 {
+	unsigned char i;
 
+	int Maximum= test[0];
+	for(i=1;i<SIZE;i++)
+    {	
+    	if(test[i]>Maximum)
+        	Maximum = test[i];
+    }
+	
+	return Maximum;
 }
 
 
@@ -75,6 +90,14 @@ int find_maximum (unsigned char*test)
 
 unsigned char find_minimum(unsigned char *test)
 {
+	unsigned char i;
+	unsigned char Minimum= test[0];
+	for(i=1;i<SIZE;i++)
+    {
+    	if(test[i]<Minimum)
+        	Minimum = test[i];
+    }
+	return Minimum;
 
 }
 
@@ -82,6 +105,16 @@ unsigned char find_minimum(unsigned char *test)
 
 float find_mean(unsigned char*test)
 {	
+	unsigned char i;
+	float Mean=0;
+	unsigned int Sum=0;
+	for (i=0;i<SIZE;i++)
+	{	
+		Sum=Sum+test[i];
+	}
+
+	Mean=Sum/SIZE;
+	return Mean;
 
 }
 
@@ -91,6 +124,22 @@ float find_mean(unsigned char*test)
  void sort_array(unsigned char *test)
 { 
     
+    int i, j; 
+    int temporary;
+    
+    for(i=0; i<SIZE; i++)
+    {
+        for(j=i+1; j<SIZE ; j++)
+        {
+            if(test[i]<test[j])
+            {
+                temporary  = test[i];
+                test[i]    = test[j];
+                test[j]  = temporary;
+            }
+        }
+    
+   }
 }
 	
 
@@ -98,7 +147,17 @@ float find_mean(unsigned char*test)
 
 float find_median(unsigned char *test)
 {
-
+    sort_array(test);
+    float median=0;
+    
+    // if number of elements are even
+    if(SIZE%2 == 0)
+        median = (test[(SIZE-1)/2] + test[SIZE/2])/2.0;
+    // if number of elements are odd
+    else
+        median = test[SIZE/2];
+    
+    return median;
 }
 
 
@@ -107,5 +166,10 @@ float find_median(unsigned char *test)
 
 void print_statistics(unsigned char*test)
 {
+    printf("\n\nArray's statistics:\n-------------------\n");
+    printf("\nThe Maximum Value is: %d",find_maximum (test));
+    printf("\nThe Minimum Value is: %d",find_minimum (test));
+    printf("\nThe Mean Value is: %0.1f",find_mean (test));
+    printf("\nThe Median is: %0.1f",find_median (test));
 
 }
