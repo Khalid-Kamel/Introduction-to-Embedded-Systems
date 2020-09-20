@@ -9,32 +9,110 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h 
+ * @brief gets the maximum, minimum, mean, and median of
+ * the data set and reorder this data set from large to small.
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * This program can analyze an array of unsigned char data items
+ * and report analytics on the maximum, minimum, mean, and median of
+ * the data set. In addition,it reorders this data set
+ * from large to small. All statistics are rounded down to the 
+ * nearest integer. After analysis and sorting is done, it prints
+ * that data to the screen in nicely formatted presentation. 
+ * 
+ * @author Khalid Kamel
+ * @date   14/8/2020
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
+#endif
 
-/* Add Your Declarations and Function Comments here */ 
+
+void print_array(unsigned char *test);
 
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief Given an array of data and a length, prints the array to the screen.
  *
- * <Add Extended Description Here>
+ * This function prints the array to the screen.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param *test  Pointer to The array of given length and data.
  *
- * @return <Add Return Informaiton here>
+ * @return void
+ */
+
+int find_maximum (unsigned char *test);
+
+/**
+ * @brief Given an array of data and a length, returns the maximum.
+ *
+ * This function returns the maximum value of array's elements.
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return The maximum value of the array.
+ */
+
+unsigned char find_minimum(unsigned char *test);
+
+/**
+ * @brief Given an array of data and a length, returns the minimum.
+ *
+ * This function returns the minimum value of array's elements.
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return The maximum value of the array.
+ */
+
+float find_mean(unsigned char *test);
+
+/**
+ * @brief Given an array of data and a length, returns the mean.
+ *
+ * This function returns the mean value of array's elements.
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return The mean value of the array.
+ */
+
+ void sort_array(unsigned char *test);
+
+/**
+ * @brief Given an array of data and a length, sorts the array from largest to smallest.
+ *
+ * This function sorts the array from largest to smallest.
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return void
  */
 
 
-#endif /* __STATS_H__ */
+float find_median(unsigned char *test);
+
+/**
+ * @brief Given an array of data and a length, returns the median.
+ *
+ * This function returns the mean value of array's elements.
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return The median value of the array.
+ */
+
+
+
+void print_statistics(unsigned char*test);
+
+ /**
+ * @brief prints the statistics of an array including minimum, maximum, mean, and median.
+ *
+ * This function prints the statistics of an array including minimum, maximum, mean, and median. 
+ *
+ * @param *test  Pointer to The array of given length and data.
+ *
+ * @return void
+ */
+
